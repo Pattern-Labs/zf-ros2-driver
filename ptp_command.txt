@@ -1,0 +1,1 @@
+sudo ptp4l -i mainif -S -P -2 -l 7 -m -f config_gptp.cfg
