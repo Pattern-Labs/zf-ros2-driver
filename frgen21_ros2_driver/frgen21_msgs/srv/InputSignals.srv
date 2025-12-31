@@ -1,0 +1,8 @@
+# uint8 sensing_mode
+uint8 range_mode
+# uint8 prt_mode
+# uint8 chirp_mode
+# uint8 freq_mux_mode / channel
+---
+bool success
+int8 range_mode

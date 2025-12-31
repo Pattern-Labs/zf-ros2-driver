@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot name="frgen21">
+
+  <material name="gray">
+	  <color rgba="0.5 0.5 0.5 1"/>
+	</material>
+
+  <link name="base_link" />
+  <link name="frgen21">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://frgen21_ros2/meshes/A0052J6217_FRGen21_C1.0_Customer_CAD.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_frgen21" type="fixed">
+    <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="frgen21"/>
+  </joint>
+
+</robot>
