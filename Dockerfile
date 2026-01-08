@@ -1,6 +1,7 @@
 ARG ROS_DISTRO=jazzy
+ARG ROS_ARCH=amd64
 
-FROM ros:${ROS_DISTRO}
+FROM ${ROS_ARCH}/ros:${ROS_DISTRO}
 
 RUN apt update && apt install -y \
     ros-${ROS_DISTRO}-foxglove-bridge \
