@@ -7,6 +7,11 @@ RUN apt update && apt install -y \
     ros-${ROS_DISTRO}-foxglove-bridge \
     libboost-all-dev
 
+RUN apt-get update && apt-get install -y \
+    ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
+    ros-${ROS_DISTRO}-cyclonedds
+ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /root/.bashrc
 
 COPY ./entrypoint.sh /entrypoint.sh
