@@ -1,10 +1,12 @@
-FROM ros:humble
+ARG ROS_DISTRO=jazzy
+
+FROM ros:${ROS_DISTRO}
 
 RUN apt update && apt install -y \
-    ros-humble-foxglove-bridge \
+    ros-${ROS_DISTRO}-foxglove-bridge \
     libboost-all-dev
 
-RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
+RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /root/.bashrc
 
 COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
@@ -16,7 +18,7 @@ RUN /bin/bash -c "source /opt/ros/humble/setup.bash && colcon build --symlink-in
 
 RUN echo "source /ros2_ws/install/setup.bash" >> /root/.bashrc
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["ROS_DISTRO=${ROS_DISTRO} /entrypoint.sh"]
 
 
 #  If not sudo apt install ros-[VERSION]-rviz2 
