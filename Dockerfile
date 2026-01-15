@@ -24,6 +24,8 @@ RUN /bin/bash -c "source /opt/ros/${ROS_DISTRO}/setup.bash && colcon build --sym
 
 RUN echo "source /ros2_ws/install/setup.bash" >> /root/.bashrc
 
+COPY cyclonedds.xml /opt/ros/cyclonedds.xml
+
 ENTRYPOINT ["/entrypoint.sh"]
 
 
